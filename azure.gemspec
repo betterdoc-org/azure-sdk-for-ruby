@@ -32,9 +32,11 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 1.9.3'
 
   s.add_runtime_dependency('addressable',             '~> 2.3')
-  s.add_runtime_dependency('azure-core',              '~> 0.1')
-  s.add_runtime_dependency('faraday',                 '~> 0.9')
-  s.add_runtime_dependency('faraday_middleware',      '~> 0.10')
+  # We've copied the azure-core stuff over, since we need to use our fork.
+  # The published version also depends on a < 1.0 faraday version, which breaks dependents also using sentry
+  # s.add_runtime_dependency('azure-core',              '~> 0.1')
+  s.add_runtime_dependency('faraday',                 '~> 1.0')
+  s.add_runtime_dependency('faraday_middleware',      '~> 1.0')
   s.add_runtime_dependency('mime-types',              ['>= 1', '< 4.0'])  # vagrant-share and other stuff relies on 1
   s.add_runtime_dependency('nokogiri',                '~> 1.6')
   s.add_runtime_dependency('systemu',                 '~> 2.6')
